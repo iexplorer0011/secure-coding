@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <h3>Hello, {{ username }}.</h3>
+    <fieldset>
+        <legend>Products</legend>
+        <table border="1">
+            <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td><a href="/product/{{ product['id'] }}">{{ product['name'] }}</a></td>
+            <td>{{ product['price'] }}</td>
+        </tr>
+        {% endfor %}
+        </table><br>
+    <button><a href="/add_product">Add Product</a></button>
+    </fieldset><br>
+    <button><a href="/chat">Chat</a></button>
+    <button><a href="/transfer">Transfer</a></button>
+    <button><a href="/report">Report</a></button>
+    <button><a href="/logout">Logout</a></button>
+</body>
+</html>

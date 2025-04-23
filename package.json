@@ -1,0 +1,15 @@
+{
+  "name": "marketplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.py",
+  "scripts": {
+    "start": "python app.py"
+  },
+  "dependencies": {
+    "flask": "^2.0.1",
+    "flask-socketio": "^5.1.1",
+    "python-socketio": "^5.4.0",
+    "eventlet": "^0.33.0"
+  }
+} 

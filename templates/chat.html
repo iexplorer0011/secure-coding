@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>Chat</h1>
+        <fieldset>
+            <legend>채팅</legend>
+            <div id="messages"></div>            
+        </fieldset><br>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+        <button type="submit">전송</button>
+        </form><br>
+        <button><a href="/dashboard">돌아가기</a></button>
+    </div>
+
+    <script>
+        const socket = io();
+        const messages = document.getElementById('messages');
+        const form = document.getElementById('message-form');
+        const input = document.getElementById('message-input');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (input.value) {
+                socket.emit('message', { message: input.value });
+                input.value = '';
+            }
+        });
+
+        socket.on('message', (data) => {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+            messageElement.innerHTML = `<span class="username">${data.username}:</span> ${data.message}`;
+            messages.appendChild(messageElement);
+            messages.scrollTop = messages.scrollHeight;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <h2>Add Product</h2>
+    <form action="/add_product" method="post">
+        <fieldset>
+            <legend>상품 추가</legend>
+            <label for="name">상품명:</label><br>
+            <input type="text" name="name" placeholder="상품명" required><br>
+            <label for="price">가격:</label><br>
+            <input type="text" name="price" placeholder="가격" required><br>
+            <label for="description">설명:</label><br>
+            <input type="text" name="description" placeholder="설명" required><br><br>
+            <button type="submit">상품 추가</button>
+        </fieldset>
+    </form>
+    <a href="/dashboard">Previous Page</a>
+</body>
+</html>

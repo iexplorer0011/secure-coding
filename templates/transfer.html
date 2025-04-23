@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer</title>
+</head>
+<body>
+    <h1>Transfer</h1>
+    <p><b>{{ username }}님 현재 잔액:</b> {{ balance }}원</p>
+    <fieldset>
+        <legend>송금</legend>
+        <form action="/transfer" method="post" style="padding: 20px;">
+            <label>송금할 사용자 이름:</label><br>
+            <input type="text" name="username" placeholder="사용자 이름" required style="margin: 10px 0;"><br>
+            <label>송금 금액:</label><br>
+            <input type="number" name="amount" placeholder="금액" required style="margin: 10px 0;"><br>
+            <button type="submit" style="margin-top: 10px;">송금</button>
+        </form>
+    </fieldset><br>
+    <a href="/dashboard">Previous Page</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>alert('{{ messages[-1] }}');</script>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
